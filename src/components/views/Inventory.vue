@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!loading" class="row">
+  <div class="row">
     <div v-for="(item, index) in items" :key="index" class="card m-2" style="width: 18rem;">
       <img class="card-img-top" :src="item.photo" alt="Card image cap">
       <div class="card-body">
@@ -9,7 +9,6 @@
       </div>
     </div>
   </div>
-  <h1 v-else> Loading... </h1>
 </template>
 
 <script>
