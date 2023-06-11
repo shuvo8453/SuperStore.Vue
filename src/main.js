@@ -14,11 +14,16 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+import { routes } from "./router/index";
 
+const router = new VueRouter({
+  routes
+})
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   components: { App },
   template: '<App/>'
 })
