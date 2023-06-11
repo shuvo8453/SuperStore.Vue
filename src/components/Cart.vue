@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-group">
+  <ul class="list-group mt-4">
     <li class="list-group-item">
       <span class="item-name">Name</span>
       <span class="item-price float-right">Price</span>
