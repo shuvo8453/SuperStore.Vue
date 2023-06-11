@@ -17,7 +17,6 @@
   export default {
     data(){
       return {
-        loading: true,
         items:[]
       }
     },
@@ -31,10 +30,7 @@
       fetchInventory() {
         let self = this
         axios.get('http://api_server.test/api/data').then(response => {
-          setTimeout(function (){
             self.items = response.data
-            self.loading = false
-          }, 3000)
         })
       }
     },
