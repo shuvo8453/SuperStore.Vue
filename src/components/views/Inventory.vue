@@ -1,6 +1,6 @@
 <template>
   <div v-if="!loading" class="row">
-    <div v-for="(item, index) in items" :key="index" class="card m-2" style="width: 18rem;">
+    <div v-for="(item, index) in items" :key="index" class="card m-2" style="width: 13rem;">
       <img class="card-img-top" :src="item.photo" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ item.title }}</h5>
