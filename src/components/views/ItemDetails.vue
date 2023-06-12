@@ -1,10 +1,36 @@
 <template>
-  <h3>Details {{ $route.params.id }}</h3>
+  <div v-if="item" class="row">
+    <div class="col-sm-6">
+      <img :src="item.photo" alt="photo">
+    </div>
+    <div class="col-sm-6">
+      <h4>{{ item.title }}</h4>
+      <p>{{ item.description }}</p>
+      <p>{{ item.price }}</p>
+    </div>
+  </div>
+  <h3 v-else>Loading...</h3>
 </template>
 
 <script>
-export default {
+import axios from "axios";
 
+export default {
+  data() {
+    return{
+      item: null
+    }
+  },
+  mounted() {
+    this.fetchItem()
+  },
+  methods:{
+    fetchItem(){
+      axios.get('http://api_server.test/api/data/' + this.$route.params.id).then(response => {
+        this.item = response.data.data
+      })
+    }
+  }
 }
 </script>
 

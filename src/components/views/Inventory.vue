@@ -1,12 +1,14 @@
 <template>
   <div v-if="!loading" class="row">
-    <div v-for="(item, index) in items" :key="index" class="card m-2" style="width: 13rem;">
-      <img class="card-img-top" :src="item.photo" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-        <p class="card-text">{{ item.price }}</p>
-        <a @click="addCartItem(item)" class="btn btn-primary">+add</a>
-      </div>
+    <div v-for="(item, index) in items" :key="index" class="card m-1" style="width: 13rem;">
+      <router-link :to="{ path: '/item/' + item.id }">
+        <img class="card-img-top" :src="item.photo" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">{{ item.price }}</p>
+          <a @click="addCartItem(item)" class="btn btn-primary">+add</a>
+        </div>
+      </router-link>
     </div>
   </div>
   <h1 v-else> Loading... </h1>
