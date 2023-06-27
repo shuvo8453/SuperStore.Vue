@@ -29,7 +29,7 @@ export default {
   methods:{
     search(){
       axios.get('http://api_server.test/api/data?search=' + this.keyword).then(response => {
-        console.log(response.data)
+        this.$store.commit('setInventory', response.data)
       })
     }
   }
