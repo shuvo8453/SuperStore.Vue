@@ -33,7 +33,7 @@ export default {
   },
   methods:{
     removeItem(index){
-      this.$emit('itemRemoved', index)
+      this.$store.commit('removeItem', index)
     }
   }
 }
