@@ -6,9 +6,9 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.price }}</p>
-          <a @click="addCartItem(item)" class="btn btn-primary">+add</a>
         </div>
       </router-link>
+      <a @click="addCartItem(item)" class="btn btn-primary">+add</a>
     </div>
   </div>
   <h1 v-else> Loading... </h1>
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     addCartItem(item) {
-      this.$emit("newCartItem", item)
+      this.$store.commit('addToCart', item)
     },
     fetchInventory() {
       let self = this
