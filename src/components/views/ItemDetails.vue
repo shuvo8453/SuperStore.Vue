@@ -7,6 +7,7 @@
       <h4>{{ item.title }}</h4>
       <p>{{ item.description }}</p>
       <p>{{ item.price }}</p>
+      <a @click="addCartItem(item)" class="btn btn-primary">+add</a>
     </div>
   </div>
   <h3 v-else>Loading...</h3>
@@ -25,6 +26,9 @@ export default {
     this.fetchItem()
   },
   methods:{
+    addCartItem(item) {
+      this.$store.commit('addToCart', item)
+    },
     fetchItem(){
       axios.get('http://api_server.test/api/data/' + this.$route.params.id).then(response => {
         this.item = response.data.data
